@@ -1,0 +1,66 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='../assets/images/logo.svg')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css')
+  body
+    .mx-auto.col-12.col-md-8.col-lg-6
+      .mx-auto.text-center
+        img.mx-auto(src='./views/assets/images/logo.svg' width='135' height='auto' alt='')
+      h2.mx-auto.text-center New Appointment Details
+      table.text-start.table
+        tbody
+          tr.text-start
+            th Key
+            th Value
+          tr
+            td First Name:
+            td #{fname}
+          tr
+            td Last Name:
+            td #{lname}
+          tr
+            td Email Address:
+            td #{email}
+          tr
+            td Date of Birth:
+            td #{DOB}
+          tr
+            td Gender:
+            td #{gender}
+          tr
+            td Phone Number:
+            td #{phonenumber}
+          tr
+            td City:
+            td #{city}
+          tr
+            td State:
+            td #{state}
+          tr
+            td Zip:
+            td #{zip}
+          tr
+            td Address:
+            td #{address}
+          tr
+            td Allergies:
+            td #{allergies}
+          tr
+            td Health Conditions:
+            td #{health_conditions}
+          tr
+            td Medicins you are using:
+            td #{medicines_using}
+          tr
+            td Reason of Visit:
+            td #{reason_of_visit}
+          tr
+            td Time of Visit:
+            td #{time_of_visit}
+          tr
+            td Description of Problem/Symptoms:
+            td #{message}
