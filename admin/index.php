@@ -202,19 +202,9 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                 <ul class="navbar-nav text-light" id="accordionSidebar">
 
                     <li class="nav-item" onclick="ajax_call_update_logo()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Change Logo</span></a></li>
-                    <!-- <li class="nav-item" onclick="ajax_call_view_category()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Entities</span></a></li>   
-                    <li class="nav-item" onclick="ajax_call_add_category1()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Add New Project</span></a></li>
-                    <li class="nav-item" onclick="ajax_call_view_category1()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Projects</span></a></li>      -->
                     <li class="nav-item" onclick="ajax_call_update_address_details()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Edit Contact Details</span></a></li>
-                     <li class="nav-item" onclick="ajax_call_view_appointments()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View all Appointments</span></a></li>  
-                    <!--<li class="nav-item" onclick="ajax_call_view_employee_Archieve()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View Employees archive</span></a></li>                       
-                    <li class="nav-item" onclick="ajax_call_upload_document()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Upload Documents</span></a></li>                       
-                    <li class="nav-item" onclick="ajax_call_documents_from_employees()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Documents From Employees</span></a></li>
-                    <li class="nav-item" onclick="ajax_call_update_policy_request()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Updated Policy Approval</span></a></li>
-                    <li class="nav-item" onclick="ajax_call_register_new_tool()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Register New Tool</span></a></li>
-                    <li class="nav-item" onclick="ajax_call_view_tools()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Tools</span></a></li>                    
-                    <li class="nav-item" onclick="ajax_call_received_requests()"><a class="nav-link"><i class="far fa-user-circle"></i><span>Received Requests <span class="px-1" style="border:1px solid white;border-radius:50%"><?php echo $countera; ?></span></span></a></li>
-                    <li class="nav-item" onclick="ajax_call_variation_show()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View All Variations</span></a></li> -->
+                    <li class="nav-item" onclick="ajax_call_edit_reasons()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>Edit Reasons for Visit</span></a></li>
+                    <li class="nav-item" onclick="ajax_call_view_appointments()"><a class="nav-link" ><i class="far fa-user-circle"></i><span>View all Appointments</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -300,34 +290,6 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                 }
             });
         }
-        function ajax_call_add_category1(){
-                $.ajax({
-                type: "post",
-                url: "add-project.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }
-        function ajax_call_view_category1(){
-                $.ajax({
-                type: "post",
-                url: "view-projects.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }
-
-        function ajax_call_add_employee(){
-                $.ajax({
-                type: "post",
-                url: "add-employee.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }
                 function ajax_call_view_appointments(){
                 $.ajax({
                 type: "post",
@@ -337,86 +299,13 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
                 }
             });
         }
-        function ajax_call_view_employee2(){
-                $.ajax({
-                type: "post",
-                url: "add-members.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }
-                function ajax_call_upload_document(){
-                $.ajax({
-                type: "post",
-                url: "upload_documents.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }        
-                function ajax_call_documents_from_employees(){
-                $.ajax({
-                type: "post",
-                url: "documents_from_employees.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }
-        function ajax_call_update_policy_request(){
-                $.ajax({
-                type: "post",
-                url: "new-policy-request.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }                
-        function ajax_call_view_employee_Archieve(){
-            $.ajax({
-                type: "post",
-                url: "employee_archieve_controller.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }
-        function ajax_call_register_new_tool(){
-            $.ajax({
-                type: "post",
-                url: "add_new_tool.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-        }
-        function ajax_call_view_tools(){
-            $.ajax({
-                type: "post",
-                url: "view_tools.php",
-                success: function (result) {
-                    $("#showhere").html(result);
-                }
-            });
-
-        }
-        function ajax_call_received_requests(){
-            $.ajax({
-            type: "post",
-            url: "received_requests.php",
-            success: function(result){
-                $("#showhere").html(result);
-            }
-        });
-        }
-        function ajax_call_variation_show(){
-            var x1 = "x1";
+        function ajax_call_edit_reasons(){
+            // var x1 = "x1";
             document.getElementById("loader1").style.visibility = "visible";
             $.ajax({
             type: "post",
-            data:{x1:x1},
-            url: "controller.php",
+            // data:{x1:x1},
+            url: "edit_reasons.php",
             success: function(result){
                 $("#showhere").html(result);
                 document.getElementById("loader1").style.visibility = "hidden";

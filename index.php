@@ -257,7 +257,7 @@ include("./back_end_php/db.php");
               <div class="col-lg-6 col-md-12 col-sm-6 col-12">
                 <label for="fname" class="form-label">First Name</label>
                 <input
-                value="fname"
+                
                   id="fname"
                   type="text"
                   class="form-control"
@@ -268,7 +268,7 @@ include("./back_end_php/db.php");
               <div class="col-lg-6 col-md-12 col-sm-6 col-12">
                 <label for="lname" class="form-label">Last Name</label>
                 <input
-                value="fname"
+                
                   id="lname"
                   type="text"
                   name="lname"
@@ -279,7 +279,7 @@ include("./back_end_php/db.php");
               <div class="col-lg-6 col-md-12 col-sm-6 col-12">
                 <label for="email1" class="form-label">Email Address</label>
                 <input
-                value="fname"
+                
                 id="email1"
                   type="text"
                   name="email1"
@@ -303,8 +303,8 @@ include("./back_end_php/db.php");
               <div class="col-12">
                 <label for="gender" class="form-label">Gender</label>
                 <select name="gender" id="gender" class="form-select">
-                  <option value="" disabled >Gender</option>
-                  <option value="Male" selected>Male</option>
+                  <option value="Not Selected" selected disabled >Gender</option>
+                  <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
               </div>
@@ -312,7 +312,6 @@ include("./back_end_php/db.php");
                 
                   <label for="phonenumber" class="form-label">Phone Number</label>
                   <input
-                  value="fname"
                   id="phonenumber"
                   name="phonenumber"
                     type="text"
@@ -323,7 +322,7 @@ include("./back_end_php/db.php");
               <div class="col-lg-6 col-md-12 col-sm-6 col-12">
                 <label for="city" class="form-label">City</label>
                 <input
-                value="fname"
+
                 id="city"
                   name="city"
                   type="text"
@@ -334,7 +333,7 @@ include("./back_end_php/db.php");
               <div class="col-lg-6 col-md-12 col-sm-6 col-12">
                 <label for="state" class="form-label">State</label>
                 <input
-                value="fname"
+                
                 id="state"
                 name="state"
                 type="text"
@@ -344,16 +343,16 @@ include("./back_end_php/db.php");
               </div>
               <div class="col-lg-6 col-md-12 col-sm-6 col-12">
                 <label for="zip" class="form-label">Zip</label>
-                <input value="122" type="number" id="zip" class="form-control" name="zip" placeholder="Zip" />
+                <input  type="number" id="zip" class="form-control" name="zip" placeholder="Zip" />
               </div>
               <div class="col-12">
                 <label for="address" class="form-label">Address</label>
-                <input value="fname" type="text" id="address" class="form-control" name="address" placeholder="Address" />
+                <input  type="text" id="address" class="form-control" name="address" placeholder="Address" />
               </div>
               <div class="col-12">
-                <label value="fname" for="allergies" class="form-label">Allergies</label>
+                <label  for="allergies" class="form-label">Allergies</label>
                 <input
-                value="fname"
+                
                 id="allergies"
                   name="allergies"
                   type="text"
@@ -364,7 +363,7 @@ include("./back_end_php/db.php");
               <div class="col-12">
                 <label for="health_conditions" class="form-label">Health Conditions</label>
                 <input
-                value="fname"
+                
                 id="health_conditions"
                 name="health_conditions"
                   type="text"
@@ -375,7 +374,7 @@ include("./back_end_php/db.php");
               <div class="col-12">
                 <label for="medicines_using" class="form-label">Medications</label>
                 <input
-                value="fname"
+                
                 id="medicines_using"
                   type="text"
                   name="medicines_using"
@@ -387,7 +386,20 @@ include("./back_end_php/db.php");
                 <label for="reason_of_visit" class="form-label">Reason Of Visit</label>
                 <select name="reason_of_visit" id="reason_of_visit" class="form-select">
                   <option disabled selected>Reason for Visit</option>
-                  <option value="Rashes">Rashes</option>
+                  <?php
+                                $sql = "SELECT * FROM reason_for_visit";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                  ?>
+                                    <option value="<?php echo $row['reason_name']; ?>"><?php echo $row['reason_name']; ?></option>
+                                  <?php
+                                }
+                                }
+              ?>
+                  <!-- <option value="Rashes">Rashes</option>
                   <option value="Back Pain (non-opiate)">Back Pain (non-opiate)</option>
                   <option value="Upper Respiratory Infection">Upper Respiratory Infection</option>
                   <option value="Urinary Tract Infection">Urinary Tract Infection</option>
@@ -398,7 +410,7 @@ include("./back_end_php/db.php");
                   <option value="Weight Loss">Weight Loss</option>
                   <option value="Men Health">Men’s Health</option>
                   <option value="Women Health">Women’s Health</option>
-                  <option value="PREP">PREP</option>
+                  <option value="PREP">PREP</option> -->
                 </select>
               </div>
               <div class="col-12">
@@ -420,7 +432,7 @@ include("./back_end_php/db.php");
                   rows="8"
                   class="form-control"
                   placeholder="Description of Problem/ Symptoms you are facing"
-                >value="fname"</textarea>
+                ></textarea>
               </div>
               <div class="col-12">
                 <div class="text-center">
@@ -465,10 +477,7 @@ include("./back_end_php/db.php");
       <div class="container">
         <div class="row gy-5 gx-xl-5 gx-4">
           <div class="col-lg-5">
-            <h3 class="heading mb-3">SAN ANTONIO PRIME WELLNESS</h3>
-            <p class="footer-desctiption">
-              FIND YOUR PRIME <br>
-              <?php
+          <?php
                                 $sql = "SELECT * FROM contactdetails";
                                 $result = $conn->query($sql);
 
@@ -477,9 +486,13 @@ include("./back_end_php/db.php");
                                 while($row = $result->fetch_assoc()) {
                                     $addressa = $row['address'];
                                     $phonea = $row['phonenumber'];
+                                    $heading = $row['heading'];
                                 }
                                 }
               ?>
+            <h3 class="heading mb-3"><?php echo $heading; ?></h3>
+            <p class="footer-desctiption">
+              FIND YOUR PRIME <br>
               <span id="addressa">
                 <?php echo $addressa; ?>
               </span><br>

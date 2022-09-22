@@ -1,14 +1,13 @@
 <?php
 include("../back_end_php/db.php");
-                                $sql = "SELECT * FROM contactdetails";
+$id = $_POST['x'];
+                                $sql = "SELECT * FROM reason_for_visit where id = '$id'";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
                                 // output data of each row
                                 while($row = $result->fetch_assoc()) {
-                                    $address = $row['address'];
-                                    $phonenumber = $row['phonenumber'];
-                                    $heading = $row['heading'];
+                                    $reason_name = $row['reason_name'];
                                 }
                                 }
                                 // $logoname = "./logo_folder/".$logoname;
@@ -16,20 +15,15 @@ include("../back_end_php/db.php");
 ?>
 <div>
     <h3 class="text-center">
-        Edit Contact Details
+        Edit Reason Details
     </h3>
-    <form id="addproject">
-    <div class="input-group mb-3 col-md-6 mt-4 mx-auto">
-  <input type="text" name="heading" class="form-control" placeholder="Heading" value="<?php echo $heading; ?>">
-    <!-- <input type="text" id="inputemployeelastname" class="form-control" placeholder="Enter Last Name"> -->
-</div>
-<div class="input-group mb-3 col-md-6 mt-4 mx-auto">
-  <input type="text" name="address" class="form-control" placeholder="Address" value="<?php echo $address; ?>">
-    <!-- <input type="text" id="inputemployeelastname" class="form-control" placeholder="Enter Last Name"> -->
-</div>
-<div class="input-group mb-3 col-md-6 mt-4 mx-auto">
-  <input type="number" name="phonenumber" class="form-control" placeholder="Phone Number" value="<?php echo $phonenumber; ?>">
-</div>
+    <form id="editreason">
+    <div class="input-group col-md-6 mt-4 mx-auto">
+        <input type="text" name="reason_name" class="form-control" value="<?php echo $reason_name; ?>">
+    </div>
+    <div class="input-group col-md-6 mt-4 mx-auto" style="visibility: hidden;">
+        <input type="text" name="id" class="form-control" value="<?php echo $id; ?>">
+    </div>
   <div class="input-group-append">
     <button class="btn btn-outline-secondary mx-auto"  type="submit">Save</button>
   </div>
@@ -50,7 +44,7 @@ include("../back_end_php/db.php");
     // }
     var request;
 
-        $("#addproject").submit(function (event) {
+        $("#editreason").submit(function (event) {
 
             // Prevent default posting of form - put here to work in case of errors
             event.preventDefault();
@@ -78,7 +72,7 @@ include("../back_end_php/db.php");
             $.ajax({
                 type: "post",
                 data: serializedData,
-                url: "save_contact_details.php",
+                url: "save_reason_details.php",
                 success: function (result) {
                   // alert(result);
                     $("#div13").html(result);

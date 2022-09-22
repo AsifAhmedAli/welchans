@@ -1,11 +1,9 @@
 <?php 
 include("../back_end_php/db.php");
-$address = $_POST['address'];
-$heading = $_POST['heading'];
-
-$phonenumber = $_POST['phonenumber'];
+$reason_name = $_POST['reason_name'];
+$id = $_POST['id'];
 // echo "<script>alert('".$address.$phonenumber."')</script>";
-$sql = "UPDATE contactdetails SET address='$address', phonenumber='$phonenumber', heading = '$heading'";
+$sql = "UPDATE reason_for_visit SET reason_name='$reason_name' where id = '$id'";
 
 if ($conn->query($sql) === TRUE) {
     echo "<script>
